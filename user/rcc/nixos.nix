@@ -1,5 +1,5 @@
 # Config for the user rcc (me)
-{ config, pkgs, username, ... }:
+{ pkgs, username, ... }:
 {
   imports = [
     ../../modules/plasma6.nix

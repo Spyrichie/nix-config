@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
+let
 nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
@@ -13,6 +14,7 @@ nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
 in
 {
   imports = [
+    ../../modules/system.nix
     ./hardware-configuration.nix
   ];
 
