@@ -38,6 +38,7 @@
 #           {
 #             home-manager.useGlobalPkgs = true;
 #             home-manager.useUserPkgs = true;
+#             home-manager.shareModules = [ plasma-manager.homeManagerModules.plasma-manager ];
 #
 #             home-manager.extraSpecialArgs = inputs // specialArgs;
 #             home-manager.users.${username} = import ./user/${username}/home.nix;
