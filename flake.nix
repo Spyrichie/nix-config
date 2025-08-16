@@ -22,7 +22,7 @@
   };
   outputs = { self, nixpkgs, nixos-hardware/*, home-manager, plasma-manager*/ }@inputs: {
     nixosConfigurations = {
-      rcc-laptop  = let
+      rcc-laptop = let
           username = "rcc";
           specialArgs = { inherit username; };
       in
@@ -43,6 +43,19 @@
 #             home-manager.extraSpecialArgs = inputs // specialArgs;
 #             home-manager.users.${username} = import ./user/${username}/home.nix;
 #           }
+        ];
+      };
+      rcc-desktop = let
+        username = "rcc";
+        specialArgs = { inherit username; };
+      in
+      nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        system = "x86_64-linux";
+
+        modules = [
+          ./hosts/rcc-desktop
+          ./user/${username}/nixos-desktop.nix
         ];
       };
     };
