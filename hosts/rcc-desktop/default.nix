@@ -10,32 +10,47 @@
   ];
 
   # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = false;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
 
-    grub = {
-      enable = true;
-      useOSProber = true;
-      device = "nodev";
-      efiSupport = true;
-      extraEntries = ''
-        menuentry "Reboot" {
-          reboot
-        }
-        menuentry "Poweroff" {
-          halt
-        }
-      '';
+    loader = {
+      systemd-boot.enable = false;
+      efi.canTouchEfiVariables = true;
+
+      grub = {
+        enable = true;
+        useOSProber = true;
+        device = "nodev";
+        efiSupport = true;
+        extraEntries = ''
+          menuentry "Reboot" {
+            reboot
+          }
+          menuentry "Poweroff" {
+            halt
+          }
+        '';
+      };
     };
   };
 
   networking.hostName = "rcc-desktop"; # Define your hostname.
 
   # Enable Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      # Enable Nvidia settings menu,
+      # accessible via `nvidia-settings`.
+      nvidiaSettings = true;
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 
   # Enable networking.
