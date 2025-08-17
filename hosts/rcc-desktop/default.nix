@@ -12,6 +12,7 @@
   # Bootloader.
   boot = {
     #kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
+    blacklistedKernelModules = [ "nouveau" ];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -37,17 +38,17 @@
 
   # Enable Bluetooth
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+#    bluetooth = {
+#      enable = true;
+#      powerOnBoot = true;
+#    };
 
     nvidia = {
       modesetting.enable = true;
       # Enable Nvidia settings menu,
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
-      #open = true;
+      open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
