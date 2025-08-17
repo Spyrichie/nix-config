@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.nvidia = {
