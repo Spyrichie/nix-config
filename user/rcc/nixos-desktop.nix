@@ -9,6 +9,7 @@
     # Programs
     packages = with pkgs; [
       brave
+      devenv
       kdePackages.dolphin-plugins
       kdePackages.kate
     ];
