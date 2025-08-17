@@ -55,7 +55,7 @@
 
         modules = [
           ./hosts/rcc-desktop
-          ./user/${username}/nixos-desktop.nix
+          ./user/${username}/nixos.nix
         ];
       };
     };
