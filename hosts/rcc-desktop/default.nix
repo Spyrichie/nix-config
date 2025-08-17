@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ../../modules/system.nix
@@ -14,8 +14,7 @@
     #kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
 
     loader = {
-      systemd-boot.enable = false;
-      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = lib.mkOverride false;
 
       grub = {
         enable = true;

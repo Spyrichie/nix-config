@@ -18,12 +18,6 @@ in
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
   networking.hostName = "rcc-laptop"; # Define your hostname.
 
   # Enable Bluetooth

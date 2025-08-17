@@ -24,6 +24,12 @@
     };
   };
 
+  # Bootloader.
+  boot.loader = {
+    systemd-boot.enable = lib.mkDefault true;
+    efi.canTouchEfiVariables = lib.mkDefault true;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
