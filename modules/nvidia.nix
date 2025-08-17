@@ -17,7 +17,7 @@
     # Support is limited to the Turing and later architectures. Full list of
     # supported GPUs is at:
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    open = false;
+    open = true;
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
