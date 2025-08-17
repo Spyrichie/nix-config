@@ -11,7 +11,7 @@
 
   # Bootloader.
   boot = {
-    kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
+    #kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
 
     loader = {
       systemd-boot.enable = false;
@@ -62,11 +62,11 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
-  boot = {
-    # Enables the amd cpu scaling https://www.kernel.org/doc/html/latest/admin-guide/pm/amd-pstate.html
-    # On recent AMD CPUs this can be more energy efficient.
-    kernelParams = [ "amd_pstate=active" ];
-  };
+#   boot = {
+#     # Enables the amd cpu scaling https://www.kernel.org/doc/html/latest/admin-guide/pm/amd-pstate.html
+#     # On recent AMD CPUs this can be more energy efficient.
+#     kernelParams = [ "amd_pstate=active" ];
+#   };
 
   # Enable OpenGL
   hardware.graphics = {
