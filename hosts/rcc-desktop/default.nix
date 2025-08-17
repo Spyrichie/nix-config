@@ -14,7 +14,7 @@
     #kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
 
     loader = {
-      systemd-boot.enable = lib.mkOverride false;
+      systemd-boot.enable = lib.mkForce false;
 
       grub = {
         enable = true;
