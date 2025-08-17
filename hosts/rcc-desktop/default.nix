@@ -12,6 +12,8 @@
 
   # Bootloader.
   boot = {
+    # Blacklist nouveau drivers as they were causing problems.
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     #kernelPackages = pkgs.linuxKernel.kernels.linux_lqx;
 
     loader = {
