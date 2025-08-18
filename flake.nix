@@ -30,7 +30,7 @@
           system = "x86_64-linux";
       in
       nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs };
+        specialArgs = { inherit inputs; };
 
         modules = [
           ./hosts/rcc-laptop
