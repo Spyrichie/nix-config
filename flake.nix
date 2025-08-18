@@ -27,7 +27,7 @@
       rcc-laptop =
       let
           username = "rcc";
-          specialArgs = { inherit username; };
+          specialArgs = { inherit username; inherit nix-vscode-extensions; };
       in
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
