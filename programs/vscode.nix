@@ -4,7 +4,7 @@
     nix-vscode-extensions.overlays.default
   ];
 
-  user.users.${username}.packages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with open-vsx; [
