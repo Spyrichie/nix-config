@@ -49,6 +49,7 @@
           bbenoist.nix
           ms-python.vscode-pylance
           ms-python.python
+          bmewburn.vscode-intelephense-client
         ]; })
       vulkan-tools
       yed
