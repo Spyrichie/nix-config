@@ -23,22 +23,19 @@
 #     };
   };
   outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
-    overlays = {
-      pkg-sets = (
-        final: prev: {
-          stable = import inputs.nixpkgs-stable { system = final.system; };
-        }
-      );
-    };
     nixosConfigurations = {
       rcc-laptop =
       let
           username = "rcc";
-          specialArgs = { inherit username; inherit nix-vscode-extensions; inherit  nixpkgs-stable; };
+          system = "x86_64-linux";
+          overlay-stable = final: prev: {
+            stable = inputs.nixpkgs-stable.${system};
+          };
+          specialArgs = { inherit username; inherit system; inherit nix-vscode-extensions; };
       in
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        system = "x86_64-linux";
+        nixpkgs,overlays = [ overlay-stable ];
 
         modules = [
           ./hosts/rcc-laptop
