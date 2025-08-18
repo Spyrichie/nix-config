@@ -8,8 +8,6 @@
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # NixOS Hardware
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    # VSCode extensions
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # Home Manager
 #     home-manager = {
 #       url = "github:nix-community/home-manager/release-25.05";
@@ -27,7 +25,7 @@
       rcc-laptop =
       let
           username = "rcc";
-          specialArgs = { inherit username; inherit nix-vscode-extensions; };
+          specialArgs = { inherit username; };
       in
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
