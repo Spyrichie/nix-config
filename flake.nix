@@ -27,10 +27,11 @@
       rcc-laptop =
       let
           username = "rcc";
-          system = "x86_64-linux";
+          specialArgs = { inherit username; };
       in
       nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        inherit specialArgs;
+        system = "x86_64-linux";
 
         modules = [
           ./hosts/rcc-laptop
