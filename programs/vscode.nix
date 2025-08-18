@@ -1,7 +1,7 @@
-{ pkgs, username, ... }:
+{ inputs, pkgs, username, ... }:
 {
   nixpkgs.overlays = [
-    nix-vscode-extensions.overlays.default
+    inputs.nix-vscode-extensions.overlays.default
   ];
 
   user.users.${username}.packages = with pkgs; [
