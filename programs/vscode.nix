@@ -1,4 +1,4 @@
-{ pkgs, username, nix-vscode-extensions, nixpkgs-stable ... }:
+{ pkgs, username, nix-vscode-extensions, nixpkgs-stable, ... }:
 {
   nixpkgs.overlays = [
     nix-vscode-extensions.overlays.default
