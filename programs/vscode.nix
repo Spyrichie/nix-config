@@ -7,12 +7,12 @@
   users.users.${username}.packages = [
     (pkgs.vscode-with-extensions.override {
       vscode = pkgs.vscodium;
-      vscodeExtensions = with pkgs; [
-        open-vsx.bbenoist.nix
-        vscode-marketplace.ms-python.vscode-pylance
-        open-vsx.ms-python.python
+      vscodeExtensions = [
+        pkgs.open-vsx.bbenoist.nix
+        pkgs.vscode-marketplace.ms-python.vscode-pylance
+        pkgs.open-vsx.ms-python.python
+        pkgs-stable.vscode-extensions.devsense.phptools-vscode
       ];
     })
-    pkgs-stable.blender
   ];
 }
