@@ -27,26 +27,24 @@
   };
   outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
     nixosConfigurations =
-    let
-      # Stable nixpkgs channel.
-      pkgs-stable = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
     {
       # Laptop config.
       rcc-laptop =
       let
-          username = "rcc";
-          system = "x86_64-linux";
+        username = "rcc";
       in
       nixpkgs.lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
+        # Values to be passed to modules.
         specialArgs = {
           inherit username;
           inherit nix-vscode-extensions;
-          inherit pkgs-stable;
+
+          # Stable nixpkgs channel.
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
 
         modules = [
@@ -67,14 +65,17 @@
       # Desktop config.
       rcc-desktop = let
         username = "rcc";
-        system = "x86_64-linux";
       in
       nixpkgs.lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
         specialArgs = {
           inherit username;
           inherit nix-vscode-extensions;
-          inherit pkgs-stable;
+
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
 
         modules = [

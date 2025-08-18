@@ -1,4 +1,4 @@
-# Config for the user rcc (me)
+# NixOS config for the user rcc (me)
 { pkgs, username, ... }:
 {
   imports = [
@@ -132,9 +132,9 @@
   # Services
   services = {
     openssh.enable = true;
-    resolved.enable = true;
 
     # Install MullVad
+    resolved.enable = true;
     mullvad-vpn = {
       enable = true;
       package = pkgs.mullvad-vpn;

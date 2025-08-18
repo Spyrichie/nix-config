@@ -1,3 +1,4 @@
+# VSCode config.
 { pkgs, pkgs-stable, username, nix-vscode-extensions, ... }:
 {
   nixpkgs.overlays = [

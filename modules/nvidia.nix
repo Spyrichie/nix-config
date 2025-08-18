@@ -1,3 +1,4 @@
+# Nvidia config.
 { config, pkgs, lib, ... }:
 {
   # Enable OpenGL
