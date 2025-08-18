@@ -5,9 +5,11 @@
     # Default branch to use. (unstable in this case)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Stable channel.
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     # NixOS Hardware
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    # VSCode extensions
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # Home Manager
 #     home-manager = {
 #       url = "github:nix-community/home-manager/release-25.05";
@@ -20,12 +22,12 @@
 #       inputs.home-manager.follows = "home-manager";
 #     };
   };
-  outputs = { self, nixpkgs, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
     nixosConfigurations = {
       rcc-laptop =
       let
           username = "rcc";
-          specialArgs = { inherit username; };
+          specialArgs = { inherit username; inherit nix-vscode-extensions; inherit  nixpkgs-stable; };
       in
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
