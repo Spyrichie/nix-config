@@ -13,7 +13,7 @@
         open-vsx.ms-python.vscode-pylance
         open-vsx.ms-python.python
       ];
-    };)
+    })
     blender
   ];
 }
