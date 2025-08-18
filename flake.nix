@@ -35,7 +35,7 @@
       in
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        nixpkgs,overlays = [ overlay-stable ];
+        nixpkgs.overlays = [ overlay-stable ];
 
         modules = [
           ./hosts/rcc-laptop
