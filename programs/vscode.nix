@@ -13,6 +13,6 @@
         ms-python.python
       ];
     })
-    nixpkgs-stable.pkgs.blender
+    nixpkgs-stable.blender
   ];
 }

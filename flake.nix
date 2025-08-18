@@ -27,13 +27,19 @@
       rcc-laptop =
       let
           username = "rcc";
-          specialArgs = { inherit username; inherit nix-vscode-extensions; inherit  nixpkgs-stable; };
+          specialArgs = { inherit username; inherit nix-vscode-extensions; inherit nixpkgs-stable };
       in
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         system = "x86_64-linux";
 
-        modules = [
+        modules =
+        let
+          defaults = { pkgs, ... }: {
+            _module.args.nixpkgs-stable = import nixpkgs-stable { inherit (pkgs.stdenv.targetPlatform) system; };
+          };
+        in
+        [
           ./hosts/rcc-laptop
           ./user/${username}/nixos.nix
 
