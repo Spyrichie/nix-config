@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/plasma6.nix
+    ../../programs/vscode.nix
   ];
 
   users.users.${username} = {
@@ -43,14 +44,14 @@
       transmission_4-qt
       vesktop
       vlc
-      (vscode-with-extensions.override {
-        vscode = vscodium;
-        vscodeExtensions = with vscode-extensions; [
-          bbenoist.nix
-          ms-python.vscode-pylance
-          ms-python.python
-          bmewburn.vscode-intelephense-client
-        ]; })
+#       (vscode-with-extensions.override {
+#         vscode = vscodium;
+#         vscodeExtensions = with vscode-extensions; [
+#           bbenoist.nix
+#           ms-python.vscode-pylance
+#           ms-python.python
+#           bmewburn.vscode-intelephense-client
+#         ]; })
       vulkan-tools
       yed
       zap
