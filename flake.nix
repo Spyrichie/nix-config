@@ -27,7 +27,7 @@
       nixpkgs.overlays =
       let
         overlay-stable = final: prev: {
-          stable = inputs.nixpkgs-stable.${system};
+          stable = inputs.nixpkgs-stable.x86_64-linux;
         };
       in
       [ overlay-stable ];
