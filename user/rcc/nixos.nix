@@ -49,15 +49,7 @@
           bbenoist.nix
           ms-python.vscode-pylance
           ms-python.python
-        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "phptools-vscode";
-            publisher = "devsense";
-            version = "1.41.14332";
-            sha256 = "sha256-HuGlrDIT9MN5uEZGKm3JIp+BurjwgFt1EAvLy2wtPCk=";
-          }
-        ];
-      })
+        ]; } )
       vulkan-tools
       yed
       zap
