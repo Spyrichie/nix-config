@@ -2,14 +2,17 @@
   description = "NixOS config";
 
   inputs = {
-    # Default branch to use. (unstable in this case)
+    # Default nixpkgs branch to use (unstable in this case).
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Stable channel.
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-    # NixOS Hardware
+
+    # NixOS Hardware for my laptop.
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    # VSCode extensions
+
+    # VSCode extensions to grab VSCode extensions that aren't packaged in nix.
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     # Home Manager
 #     home-manager = {
 #       url = "github:nix-community/home-manager/release-25.05";
@@ -23,7 +26,16 @@
 #     };
   };
   outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
-    nixosConfigurations = {
+    nixosConfigurations =
+    let
+      # Stable nixpkgs channel.
+      pkgs-stable = import nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
+    {
+      # Laptop config.
       rcc-laptop =
       let
           username = "rcc";
@@ -34,11 +46,7 @@
         specialArgs = {
           inherit username;
           inherit nix-vscode-extensions;
-
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          inherit pkgs-stable;
         };
 
         modules = [
@@ -56,6 +64,7 @@
 #           }
         ];
       };
+      # Desktop config.
       rcc-desktop = let
         username = "rcc";
         system = "x86_64-linux";
@@ -64,6 +73,8 @@
         inherit system;
         specialArgs = {
           inherit username;
+          inherit nix-vscode-extensions;
+          inherit pkgs-stable;
         };
 
         modules = [
