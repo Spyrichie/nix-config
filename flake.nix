@@ -32,9 +32,10 @@
       rcc-laptop =
       let
         username = "rcc";
+        system = "x86_64-linux";
       in
       nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         # Values to be passed to modules.
         specialArgs = {
           inherit username;
@@ -65,9 +66,10 @@
       # Desktop config.
       rcc-desktop = let
         username = "rcc";
+        system = "x86_64-linux";
       in
       nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {
           inherit username;
           inherit nix-vscode-extensions;
