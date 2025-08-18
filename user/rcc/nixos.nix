@@ -49,7 +49,7 @@
           bbenoist.nix
           ms-python.vscode-pylance
           ms-python.python
-        ]; } )
+        ]; })
       vulkan-tools
       yed
       zap
