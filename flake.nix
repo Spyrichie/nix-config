@@ -24,13 +24,13 @@
   };
   outputs = { self, nixpkgs, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
     nixosConfigurations = {
-      rcc-laptop = let
+      rcc-laptop =
+      let
           username = "rcc";
-          specialArgs = { inherit username; };
+          system = "x86_64-linux";
       in
       nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        system = "x86_64-linux";
+        specialArgs = { inherit inputs };
 
         modules = [
           ./hosts/rcc-laptop
