@@ -6,7 +6,7 @@
 
   users.users.${username}.packages = [
     (pkgs.vscode-with-extensions.override {
-      vscode = vscodium;
+      vscode = pkgs.vscodium;
       vscodeExtensions = with pkgs.open-vsx; [
         bbenoist.nix
         ms-python.vscode-pylance
