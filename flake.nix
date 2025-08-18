@@ -22,7 +22,7 @@
 #       inputs.home-manager.follows = "home-manager";
 #     };
   };
-  outputs = { self, nixpkgs, nixos-hardware/*, home-manager, plasma-manager*/ }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
     nixosConfigurations = {
       rcc-laptop = let
           username = "rcc";
