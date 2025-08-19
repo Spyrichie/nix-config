@@ -26,6 +26,7 @@
       inkscape-with-extensions
       keepassxc
       kicad
+      kmymoney
       krita
       #labplot
       libreoffice-qt
