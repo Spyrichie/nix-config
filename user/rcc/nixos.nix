@@ -73,7 +73,6 @@
       steam-run
 
       # KDE packages
-      kdePackages.kdeconnect-kde
       kdePackages.dolphin-plugins
       kdePackages.dolphin-plugins
       kdePackages.isoimagewriter
