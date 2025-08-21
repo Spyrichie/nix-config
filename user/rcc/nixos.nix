@@ -35,6 +35,7 @@
       obsidian
       orca-slicer
       postman
+      protonmail-bridge
       qbittorrent
       readest
       sparrow
