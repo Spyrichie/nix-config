@@ -10,9 +10,10 @@
       vscode = pkgs.vscodium;
       vscodeExtensions = [
         pkgs.open-vsx.bbenoist.nix
+        pkgs.open-vsx.editorconfig.editorconfig
+        pkgs-stable.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-marketplace.ms-python.vscode-pylance
         pkgs.open-vsx.ms-python.python
-        pkgs-stable.vscode-extensions.devsense.phptools-vscode
       ];
     })
   ];
