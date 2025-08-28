@@ -75,6 +75,7 @@
       # Programming languages
       jdk       # Java Latest (21)
       jdk8      # Java 8
+      php       # PHP 8.4
       python313 # Python 3.13
     ];
   };
