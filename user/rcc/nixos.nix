@@ -34,7 +34,6 @@
       obs-studio
       obsidian
       orca-slicer
-      part-db
       postman
       qbittorrent
       readest

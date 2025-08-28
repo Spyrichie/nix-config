@@ -3,17 +3,16 @@
   users.users.${username} = {
 
     packages = with pkgs; [
-      php
-      php84Packages.composer
-      php84Extensions.xdebug
+      (php.buildEnv {
+        extensions = ({ enabled, all }: enabled ++ ( with all; [
+          xdebug
+          composer
+        ]));
+        extraConfig = ''
+          xdebug.mode=debug
+        '';
+      })
       phpunit
     ];
-
-    # services.phpfpm = {
-    #   phpPackage = pkgs.php;
-    #   phpOptions = ''
-    #     zend_extension=xdebug
-    #   '';
-    # };
   };
 }
