@@ -14,4 +14,12 @@
     layout = "us";
     variant = "";
   };
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.qtwebengine
+
+    # Fonts
+    corefonts
+    vista-fonts
+  ];
 }

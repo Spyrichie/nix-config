@@ -34,6 +34,7 @@
       obs-studio
       obsidian
       orca-slicer
+      part-db
       postman
       qbittorrent
       readest
@@ -45,14 +46,6 @@
       transmission_4-qt
       vesktop
       vlc
-#       (vscode-with-extensions.override {
-#         vscode = vscodium;
-#         vscodeExtensions = with vscode-extensions; [
-#           bbenoist.nix
-#           ms-python.vscode-pylance
-#           ms-python.python
-#           bmewburn.vscode-intelephense-client
-#         ]; })
       vulkan-tools
       yed
       zap
@@ -79,6 +72,11 @@
       kdePackages.kate
       #kdePackages.kdenlive
       kdePackages.plasma-browser-integration
+
+      # Programming languages
+      jdk       # Java Latest (21)
+      jdk8      # Java 8
+      python313 # Python 3.13
     ];
   };
 
@@ -139,5 +137,10 @@
       enable = true;
       package = pkgs.mullvad-vpn;
     };
+  };
+
+  # Environment variables
+  environment.variables = {
+    JAVA8 = "${pkgs.jdk8}/lib/openjdk/bin/java";
   };
 }

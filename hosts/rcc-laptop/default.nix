@@ -115,22 +115,12 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
-    kdePackages.qtwebengine
-
-  # Fonts
-    corefonts
-    vista-fonts
-
   # Programming packages
     jdk       # Java 21
     jdk8      # Java 8
     php       # PHP
     python313 # Python
   ];
-
-  environment.variables = {
-    JAVA8 = "${pkgs.jdk8}/lib/openjdk/bin/java";
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
