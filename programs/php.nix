@@ -6,12 +6,13 @@
       (php.buildEnv {
         extensions = ({ enabled, all }: enabled ++ ( with all; [
           xdebug
-          composer
         ]));
         extraConfig = ''
+          zend_extension=xdebug
           xdebug.mode=debug
         '';
       })
+      php84Packages.composer
       phpunit
     ];
   };
