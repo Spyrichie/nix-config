@@ -14,6 +14,8 @@
         pkgs-stable.vscode-extensions.devsense.phptools-vscode
         pkgs.vscode-marketplace.ms-python.vscode-pylance
         pkgs.open-vsx.ms-python.python
+        pkgs.open-vsx.pkief.material-icon-theme
+        pkgs.open-vsx.arrterian.nix-env-selector
       ];
     })
   ];
