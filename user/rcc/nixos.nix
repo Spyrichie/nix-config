@@ -21,6 +21,7 @@
       dropbox
       emacs
       freecad-wayland
+      gnucash
       godot_4
       hunspell
       inkscape-with-extensions
@@ -46,6 +47,8 @@
       vesktop
       vlc
       vulkan-tools
+      winetricks
+      wineWowPackages.full
       yed
       zap
       zoom-us
@@ -54,7 +57,6 @@
       doomrunner
       endless-sky
       gnuchess
-      kdePackages.knights
       lutris
       mangohud
       prismlauncher

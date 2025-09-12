@@ -75,13 +75,12 @@
 
   environment.systemPackages = with pkgs; [
     git
+    gparted
     hwinfo
-    kdePackages.kpmcore
-    kdePackages.partitionmanager
+    pfetch
     ripgrep
     sysstat
+    unzip
     wget
-    winetricks
-    wineWowPackages.full
   ];
 }
