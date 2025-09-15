@@ -25,7 +25,7 @@
 #       inputs.home-manager.follows = "home-manager";
 #     };
   };
-  outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-vscode-extensions /*, home-manager, plasma-manager*/ }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, nix-vscode-extensions, home-manager,/* plasma-manager*/ }@inputs: {
     nixosConfigurations =
     {
       # Laptop config.
