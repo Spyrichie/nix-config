@@ -54,10 +54,9 @@
           ./hosts/rcc-laptop
           ./user/${username}/nixos.nix
 
-          home-manager.nixosModules.home-manager
-          {
+          home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
-            home-manager.useUserPkgs = true;
+            home-manager.useUserPackages = true;
             # home-manager.shareModules = [ plasma-manager.homeManagerModules.plasma-manager ];
 
             home-manager.extraSpecialArgs = inputs // specialArgs;
