@@ -14,10 +14,10 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Home Manager
-#     home-manager = {
-#       url = "github:nix-community/home-manager/release-25.05";
-#       inputs.nixpkgs.follows = "nixpkgs";
-#     };
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Plasma Manager
 #     plasma-manager = {
 #       url = "github:nix-community/plasma-manager";
@@ -52,37 +52,15 @@
           ./hosts/rcc-laptop
           ./user/${username}/nixos.nix
 
-#           home-manager.nixosModules.home-manager
-#           {
-#             home-manager.useGlobalPkgs = true;
-#             home-manager.useUserPkgs = true;
-#             home-manager.shareModules = [ plasma-manager.homeManagerModules.plasma-manager ];
-#
-#             home-manager.extraSpecialArgs = inputs // specialArgs;
-#             home-manager.users.${username} = import ./user/${username}/home.nix;
-#           }
-        ];
-      };
-      # Desktop config.
-      rcc-desktop = let
-        username = "rcc";
-        system = "x86_64-linux";
-      in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit username;
-          inherit nix-vscode-extensions;
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPkgs = true;
+            # home-manager.shareModules = [ plasma-manager.homeManagerModules.plasma-manager ];
 
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        };
-
-        modules = [
-          ./hosts/rcc-desktop
-          ./user/${username}/nixos.nix
+            home-manager.extraSpecialArgs = inputs // specialArgs;
+            home-manager.users.${username} = import ./user/${username}/home.nix;
+          }
         ];
       };
     };

@@ -2,7 +2,7 @@
 { pkgs, username, ... }:
 {
   imports = [
-    ../../modules/plasma6.nix
+    #../../modules/plasma6.nix
     ../../programs/vscode.nix
   ];
 
@@ -17,6 +17,7 @@
       css-html-js-minify
       #davinci-resolve
       devenv
+      libsForQt5.dolphin
       dopamine
       dropbox
       emacs
@@ -67,7 +68,6 @@
       steam-run
 
       # KDE packages
-      kdePackages.dolphin-plugins
       kdePackages.dolphin-plugins
       kdePackages.isoimagewriter
       kdePackages.kate
