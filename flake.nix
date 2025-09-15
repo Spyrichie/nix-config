@@ -33,20 +33,22 @@
       let
         username = "rcc";
         system = "x86_64-linux";
-      in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
+        # Stable nixpkgs channel.
+        pkgs-stable = import nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
         # Values to be passed to modules.
         specialArgs = {
           inherit username;
           inherit nix-vscode-extensions;
-
-          # Stable nixpkgs channel.
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          inherit pkgs-stable;
         };
+      in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit specialArgs;
 
         modules = [
           ./hosts/rcc-laptop
