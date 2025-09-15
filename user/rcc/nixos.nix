@@ -2,7 +2,7 @@
 { pkgs, username, ... }:
 {
   imports = [
-    #../../modules/plasma6.nix
+    ../../modules/plasma6.nix
     ../../programs/vscode.nix
   ];
 
