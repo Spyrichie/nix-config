@@ -5,7 +5,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    setting = {
+    settings = {
 
       # = = = == = = = #
       #    MONITORS    #
